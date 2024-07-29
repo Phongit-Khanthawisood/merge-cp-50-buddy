@@ -68,3 +68,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes wiggle {
+  /* กำหนดคีย์เฟรมของแอนิเมชัน */
+  0% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* เริ่มต้น */
+  10% {
+    transform: rotate(3deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนไป 5 องศา */
+  20% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนกลับ -5 องศา */
+  30% {
+    transform: rotate(3deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนไป 5 องศา */
+  40% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* กลับสู่ตำแหน่งเริ่มต้น */
+  100% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* กลับสู่ตำแหน่งเริ่มต้น */
+}
