@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,4 +67,32 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes wiggle {
+  /* กำหนดคีย์เฟรมของแอนิเมชัน */
+  0% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* เริ่มต้น */
+  10% {
+    transform: rotate(3deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนไป 5 องศา */
+  20% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนกลับ -5 องศา */
+  30% {
+    transform: rotate(3deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* หมุนไป 5 องศา */
+  40% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* กลับสู่ตำแหน่งเริ่มต้น */
+  100% {
+    transform: rotate(0deg) translate(-53%, -50%);
+    transform-origin: 0% 0%;
+  } /* กลับสู่ตำแหน่งเริ่มต้น */
 }
