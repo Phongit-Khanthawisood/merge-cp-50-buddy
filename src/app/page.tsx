@@ -54,6 +54,7 @@ export default function Home() {
           </Button>
         </div>
       )}
+      <FooterSection />
 
       <Toaster />
     </main>
