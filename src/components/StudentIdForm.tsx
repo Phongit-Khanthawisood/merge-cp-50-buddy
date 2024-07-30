@@ -19,7 +19,6 @@ import { auth, db } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
-import { Toaster } from "@/components/ui/toaster";
 
 const FormSchema = z.object({
   studentId: z.string().min(10, {
@@ -53,8 +52,10 @@ export default function StudentIdForm({ userId }: { userId: string }) {
       toast({
         className: "bg-green-500 text-white font-mitr",
         title: "Update Success",
-        description: "Your Pre-register Buddy Complete",
+        description:
+          "Your Pre-register in Web Complete -> Don't Forget to Register in gg form",
       });
+      window.open("https://forms.gle/CLopzkR7SjhjRWgBA", "_blank");
       signOut(auth);
     } catch (error) {
       console.error(error);
@@ -111,13 +112,13 @@ export default function StudentIdForm({ userId }: { userId: string }) {
               signOut(auth);
             }}
           >
-            Logout
+            Cancel
           </Button>
           <Button
             className="font-mitr font-semibold  bg-[#F9E2AF] text-[#DC6B19] drop-shadow-xl w-auto hover:bg-[#E58B4A] hover:text-white "
             type="submit"
           >
-            Update
+            Continue
           </Button>
         </div>
       </form>
