@@ -6,8 +6,8 @@ import { icons } from "lucide-react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Merge CP50 Buddy",
-  description: "Merge CP50 Buddy",
+  title: "Merge CP50",
+  description: "Merge CP50 Pre-register",
 };
 
 export default function RootLayout({
