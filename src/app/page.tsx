@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import StudentIdForm from "@/components/StudentIdForm";
 import { Toaster } from "@/components/ui/toaster";
+import Link from "next/link";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ export default function Home() {
   const [userId, setUserId] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
+  const [alreadyUpdate, setAlreadyUpdate] = useState(false);
 
   useEffect(() => {
     const checkLogin = async () => {
@@ -45,9 +47,23 @@ export default function Home() {
           loading...
         </div>
       ) : loginStatus ? (
-        <div className="flex justify-center items-center">
-          <StudentIdForm userId={userId} userEmail={userEmail} />
-        </div>
+        !alreadyUpdate ? (
+          <div className="flex justify-center items-center">
+            <StudentIdForm
+              userId={userId}
+              userEmail={userEmail}
+              setAlreadyUpdate={setAlreadyUpdate}
+            />
+          </div>
+        ) : (
+          <div className="flex justify-center items-center">
+            <Link href={"https://forms.gle/CLopzkR7SjhjRWgBA"}>
+              <Button className="font-mitr font-semibold text-[20px] py-6 px-4 bg-[#F9E2AF] text-[#DC6B19] rounded-full drop-shadow-xl w-auto hover:bg-[#E58B4A] hover:text-white ">
+                Continue to Google Form
+              </Button>
+            </Link>
+          </div>
+        )
       ) : (
         <div className="flex justify-center items-center">
           <Button

@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, SetStateAction, useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 
 const FormSchema = z.object({
@@ -33,9 +33,11 @@ interface FormData {
 export default function StudentIdForm({
   userId,
   userEmail,
+  setAlreadyUpdate,
 }: {
   userId: string;
   userEmail: string;
+  setAlreadyUpdate: any;
 }) {
   const [formData, setFormData] = useState<FormData>({
     studentId: "",
@@ -63,7 +65,7 @@ export default function StudentIdForm({
           "Your Pre-register in Web Complete -> Don't Forget to Register in gg form",
       });
       window.location.href = "https://forms.gle/CLopzkR7SjhjRWgBA";
-      signOut(auth);
+      setAlreadyUpdate(true);
     } catch (error) {
       console.error(error);
 
