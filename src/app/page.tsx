@@ -14,13 +14,17 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [loginStatus, setLoginStatus] = useState(false);
   const [userId, setUserId] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     const checkLogin = async () => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
+          console.log("user", user);
+          console.log("userEmail", user.email);
           setUserId(user.uid);
+          setUserEmail(user.email ? user.email : "");
           setLoginStatus(true);
         } else {
           setLoginStatus(false);
@@ -42,7 +46,7 @@ export default function Home() {
         </div>
       ) : loginStatus ? (
         <div className="flex justify-center items-center">
-          <StudentIdForm userId={userId} />
+          <StudentIdForm userId={userId} userEmail={userEmail} />
         </div>
       ) : (
         <div className="flex justify-center items-center">

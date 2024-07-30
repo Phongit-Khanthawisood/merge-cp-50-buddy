@@ -30,7 +30,13 @@ interface FormData {
   studentId: string;
 }
 
-export default function StudentIdForm({ userId }: { userId: string }) {
+export default function StudentIdForm({
+  userId,
+  userEmail,
+}: {
+  userId: string;
+  userEmail: string;
+}) {
   const [formData, setFormData] = useState<FormData>({
     studentId: "",
   });
@@ -47,6 +53,7 @@ export default function StudentIdForm({ userId }: { userId: string }) {
       await setDoc(doc(db, "user-profiles", userId), {
         uid: userId,
         studentId: data.studentId,
+        email: userEmail,
       });
 
       toast({
