@@ -12,12 +12,12 @@ export default function Home() {
       </p>
 
       <div
-        className="mt-[10vh] w-[323px] h-[400px] bg-red-700 relative"
+        className="mt-[10vh] w-[323px] h-[400px]  relative"
         onClick={(e) => {
           setOpen(true);
         }}
       >
-        {open ? <EnvalopeOpen /> : <EnvalopeClose />}
+        <Envalope open={open} />
       </div>
       {open ? (
         <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2">
@@ -46,31 +46,25 @@ export default function Home() {
   );
 }
 
-const EnvalopeClose = () => {
+const Envalope = ({ open }: { open: React.SetStateAction<boolean> }) => {
   return (
-    <div className="absolute bottom-2 font-mitr text-white mt-[15vh] text-center p-0 font-semibold w-[323px] h-[206px] mx-auto space-y-[3px]">
-      <div className="bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg">
+    <div className="absolute bottom-2 bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg font-mitr text-white mt-[15vh] text-center font-semibold mx-auto space-y-[3px]">
+      {open ? (
+        <div className="w-[90%] mt-2 absolute h-[90%] flex items-center justify-center bg-[#B99470] left-4">
+          <p>( คำใบ้บัดดี้ )</p>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      <div className={` ${open ? "animate-flip-180" : ""}`}>
         <div className="absolute top-0 -left-[4px]">
           <EnvalopeTip />
         </div>
-        <div className="absolute top-[40%] left-[40%] animate-rotate-left-right">
-          <Image src="/heart.png" width={75} height={75} alt="heart" />
-        </div>
-      </div>
-    </div>
-  );
-};
-const EnvalopeOpen = () => {
-  return (
-    <div className="absolute bottom-2 font-mitr text-white mt-[15vh] text-center p-0 font-semibold w-[323px] h-[206px] mx-auto space-y-[3px]">
-      <div className="w-[90%] absolute h-[90%] flex items-center justify-center bg-[#B99470] left-4">
-        <p>( คำใบ้บัดดี้ )</p>
-      </div>
-      <div className="bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg">
-        <div className="absolute top-0 -left-[4px]">
-          <EnvalopeTip />
-        </div>
-        <div className="absolute top-[40%] left-[40%]">
+        <div
+          className="absolute left-[125px] top-[90px]"
+          style={{ zIndex: open ? "-20" : "20" }}
+        >
           <Image src="/heart.png" width={75} height={75} alt="heart" />
         </div>
       </div>

@@ -75,15 +75,15 @@ const config = {
           '50%': { transform: 'rotate(5deg)' },
         },
         'flip-180': {
-          '0%': { transform: 'rotateY(0deg)' },
-          '100%': { transform: 'rotateY(180deg)' },
+          '0%': { transform: 'rotateX(0deg)' },
+          '100%': { transform: 'rotateX(180deg)' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'rotate-left-right': 'rotate-left-right 2s infinite',
-        'flip-180': 'flip-180 1s forwards',
+        'flip-180': 'flip-180 2s forwards',
       },
     },
   },

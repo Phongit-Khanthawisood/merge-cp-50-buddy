@@ -7,7 +7,7 @@ import { ST } from "next/dist/shared/lib/utils";
 
 export default function Home() {
   return (
-    <main className="flex min-h-[900px] h-screen flex-col sm:max-w-[360px] sm:mx-auto  bg-[##F1EDD9] overflow-hidden ">
+    <main className="flex min-h-[900px] h-screen flex-col sm:max-w-[360px] sm:mx-auto  bg-[#F1EDD9] overflow-hidden ">
       <Cloud />
 
       <LoginSection />
