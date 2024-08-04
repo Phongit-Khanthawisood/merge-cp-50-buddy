@@ -1,26 +1,54 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
   return (
     <main className="flex min-h-[900px] h-screen items-center flex-col sm:max-w-[360px] sm:mx-auto relative bg-[#F1EDD9] overflow-hidden ">
       <p className="text-gray-400 font-semibold text-center top-5 absolute">
         Merge CP50
       </p>
 
-      <div className="mt-[20vh]">
-        <EnvalopeClose />
+      <div
+        className="mt-[10vh] w-[323px] h-[400px] bg-red-700 relative"
+        onClick={(e) => {
+          setOpen(true);
+        }}
+      >
+        {open ? <EnvalopeOpen /> : <EnvalopeClose />}
+      </div>
+      {open ? (
+        <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2">
+          <p className="text-red-700 font-mitr text-sm">
+            ฝากข้อความถึงบัดดี้ / บัดเดอร์ของคุณได้ที่
+          </p>
+          <Link
+            href="https://www.instagram.com/comeng.official/"
+            target="_blank"
+            className="w-52 shadow-md shadow-gray-600 rounded-[50px] h-12 bg-[#40B8CE] flex flex-row items-center p-2"
+          >
+            <div className="w-10 h-10 bg-[#E8EFF0] rounded-full flex items-center justify-center">
+              <Image src="/ig.png" alt="ig" width={30} height={30} />
+            </div>
+            <p className="ml-4 text-white font-mitr font-normal">
+              comeng.official
+            </p>
+          </Link>
+        </div>
+      ) : (
         <p className="text-gray-400 font-semibold text-center mt-6">
           Click the heart to see the hint
         </p>
-      </div>
+      )}
     </main>
   );
 }
 
 const EnvalopeClose = () => {
   return (
-    <section className="relative font-mitr text-white mt-[15vh] text-center p-0 font-semibold w-[323px] h-[206px] mx-auto space-y-[3px]">
+    <div className="absolute bottom-2 font-mitr text-white mt-[15vh] text-center p-0 font-semibold w-[323px] h-[206px] mx-auto space-y-[3px]">
       <div className="bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg">
         <div className="absolute top-0 -left-[4px]">
           <EnvalopeTip />
@@ -29,7 +57,24 @@ const EnvalopeClose = () => {
           <Image src="/heart.png" width={75} height={75} alt="heart" />
         </div>
       </div>
-    </section>
+    </div>
+  );
+};
+const EnvalopeOpen = () => {
+  return (
+    <div className="absolute bottom-2 font-mitr text-white mt-[15vh] text-center p-0 font-semibold w-[323px] h-[206px] mx-auto space-y-[3px]">
+      <div className="w-[90%] absolute h-[90%] flex items-center justify-center bg-[#B99470] left-4">
+        <p>( คำใบ้บัดดี้ )</p>
+      </div>
+      <div className="bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg">
+        <div className="absolute top-0 -left-[4px]">
+          <EnvalopeTip />
+        </div>
+        <div className="absolute top-[40%] left-[40%]">
+          <Image src="/heart.png" width={75} height={75} alt="heart" />
+        </div>
+      </div>
+    </div>
   );
 };
 
