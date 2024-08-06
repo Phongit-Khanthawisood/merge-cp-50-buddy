@@ -16,20 +16,20 @@ export default function Home() {
 
 const LoginSection = () => {
   return (
-    <section className="relative font-mitr text-[#CBCBCB] mt-[15vh] text-center font-semibold w-auto mx-auto space-y-[3px]">
-      <div className="w-full h-auto flex items-center justify-center">
+    <section className="relative font-mitr text-[#CBCBCB] mt-[15vh] text-center font-semibold w-[300px] mx-auto space-y-[3px]">
+      <div className="w-full flex items-center justify-center">
         <Image
           src="/phase2/Merge_CP50_text.svg"
           height={60}
-          width={200}
+          width={400}
           alt="merge cp text"
         />
       </div>
 
-      <div className="relative w-screen h-[240px]">
+      <div className="relative w-[500px] h-[240px]">
         <Button
           variant="login"
-          className="absolute z-10 left-[95px] top-[305px]"
+          className="absolute z-10 left-[95px] top-[275px]"
         >
           LOG IN
         </Button>
@@ -38,7 +38,7 @@ const LoginSection = () => {
           height={300}
           width={384}
           alt="merge cp text"
-          className="absolute left-[20px]"
+          className="absolute left-[20px] -top-[30px]"
         />
       </div>
     </section>
