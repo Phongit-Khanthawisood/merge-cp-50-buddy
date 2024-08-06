@@ -74,6 +74,10 @@ const config = {
           '0%, 100%': { transform: 'rotate(-5deg)' },
           '50%': { transform: 'rotate(5deg)' },
         },
+        'up-and-down': {
+          '0%, 100%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(10px)' },
+        },
         'flip-180': {
           '0%': { transform: 'rotateX(0deg)' },
           '100%': { transform: 'rotateX(180deg)' },
@@ -83,6 +87,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'rotate-left-right': 'rotate-left-right 1.5s infinite',
+        'up-and-down': 'up-and-down 5s infinite',
         'flip-180': 'flip-180 2s forwards',
       },
     },

@@ -6,6 +6,7 @@ export function Cloud() {
       viewBox="0 0 360 128"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="z-20"
     >
       <g filter="url(#filter0_d_639_158)">
         <ellipse cx="45.5" cy="41" rx="79.5" ry="79" fill="#F2F2F2" />
