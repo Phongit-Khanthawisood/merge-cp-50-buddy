@@ -82,7 +82,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        'rotate-left-right': 'rotate-left-right 2s infinite',
+        'rotate-left-right': 'rotate-left-right 1.5s infinite',
         'flip-180': 'flip-180 2s forwards',
       },
     },

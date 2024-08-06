@@ -62,7 +62,9 @@ const Envalope = ({ open }: { open: React.SetStateAction<boolean> }) => {
           <EnvalopeTip />
         </div>
         <div
-          className="absolute left-[125px] top-[90px]"
+          className={`absolute left-[125px] top-[90px] ${
+            open ? "" : "animate-rotate-left-right"
+          }`}
           style={{ zIndex: open ? "-20" : "20" }}
         >
           <Image src="/heart.png" width={75} height={75} alt="heart" />
