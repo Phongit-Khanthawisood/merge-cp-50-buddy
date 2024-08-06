@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Cloud } from "@/components/ui/cloud";
-import { Stardrop } from "@/components/ui/starbrop";
 import Image from "next/image";
 
 export default function Home() {
@@ -27,23 +26,20 @@ const LoginSection = () => {
         />
       </div>
 
-      <div className="relative w-[300px] h-[240px] ">
-        <div className="w-[300px] h-[240px] bg-[#009FBD] rounded-[20px] flex flex-col space-y-5 items-center justify-center z-20 absolute">
-          <input
-            type="text"
-            className="px-2 h-[40px] rounded-md w-[90%] text-black"
-            placeholder="student id"
-          ></input>
-          <input
-            type="text"
-            className="px-2 h-[40px] rounded-md w-[90%] text-black"
-            placeholder="password"
-          ></input>
-          <Button variant="login">LOG IN</Button>
-        </div>
-        <div className="absolute -bottom-[150px]">
-          <Stardrop />
-        </div>
+      <div className="relative w-screen h-[240px]">
+        <Button
+          variant="login"
+          className="absolute z-10 left-[95px] top-[305px]"
+        >
+          LOG IN
+        </Button>
+        <Image
+          src="/phase2/mailbox.svg"
+          height={300}
+          width={384}
+          alt="merge cp text"
+          className="absolute left-[20px]"
+        />
       </div>
     </section>
   );
