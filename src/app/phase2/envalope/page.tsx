@@ -94,53 +94,62 @@ const Envalope = ({
   const studentData = data.filter((item, index) => {
     return item.student_id + "" === studentId;
   })[0];
-  const budderData = data[studentData.budder_index - 1];
-  const buddyData = data[studentData.buddy_index - 1];
+  let budderData, buddyData;
+  if (studentData) {
+    budderData = data[studentData.budder_index - 1];
+    buddyData = data[studentData.buddy_index - 1];
+  }
   return (
     <div className="absolute bottom-2 bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg font-mitr text-white mt-[15vh] text-center font-semibold mx-auto space-y-[3px]">
       {open ? (
         <div className="w-[90%] mt-2 py-2 bottom-2 absolute h-[90%] flex flex-col items-center justify-center bg-[#B99470] left-4 overflow-y-scroll">
-          <div className="absolute top-0 py-2 w-[80%] flex flex-col items-start justify-center  mx-auto font-light text-left">
-            <br />
-            <br />
-            <br />
-            <p className="self-center text-center font-normal">
-              เลื่อนจดหมายลงเพื่อดูรายละเอียด
-              <br />|
-              <br />|
-              <br />V
-            </p>
-            <br />
-            <p className="self-center font-normal">รายละเอียดบัดดี้</p>
-            <p>
-              <span className="underline font-normal">ชื่อเล่น:</span>{" "}
-              {buddyData.nickname}
-            </p>
-            <p>
-              <span className="underline font-normal">ไอจี/เฟซบุ๊ก:</span>{" "}
-              {buddyData.instagram_facebook}
-            </p>
-            <p>
-              <span className="underline font-normal">ของที่ชอบ:</span>{" "}
-              {buddyData.favorite_foods}
-            </p>
-            <p className="w-full">
-              <span className="underline font-normal">
-                ข้อความที่ฝากถึงบัดเดอร์:
-              </span>{" "}
+          {!studentData ? (
+            <div>
+              Your data not found <br /> Please contact support
+            </div>
+          ) : (
+            <div className="absolute top-0 py-2 w-[80%] flex flex-col items-start justify-center  mx-auto font-light text-left">
               <br />
-              <pre className="font-mitr text-center">
-                "{buddyData.message_to_budder}"
-              </pre>
-            </p>
-            <br />
-            <p className="self-center font-normal">รายละเอียดบัดเดอร์</p>
-            <p>
-              <span className="underline font-normal">คำใบ้:</span>{" "}
-              {budderData.hint_1}
-            </p>
-            <br />
-          </div>
+              <br />
+              <br />
+              <p className="self-center text-center font-normal">
+                เลื่อนจดหมายลงเพื่อดูรายละเอียด
+                <br />|
+                <br />|
+                <br />V
+              </p>
+              <br />
+              <p className="self-center font-normal">รายละเอียดบัดดี้</p>
+              <p>
+                <span className="underline font-normal">ชื่อเล่น:</span>{" "}
+                {buddyData.nickname}
+              </p>
+              <p>
+                <span className="underline font-normal">ไอจี/เฟซบุ๊ก:</span>{" "}
+                {buddyData.instagram_facebook}
+              </p>
+              <p>
+                <span className="underline font-normal">ของที่ชอบ:</span>{" "}
+                {buddyData.favorite_foods}
+              </p>
+              <p className="w-full">
+                <span className="underline font-normal">
+                  ข้อความที่ฝากถึงบัดเดอร์:
+                </span>{" "}
+                <br />
+                <pre className="font-mitr text-center">
+                  "{buddyData.message_to_budder}"
+                </pre>
+              </p>
+              <br />
+              <p className="self-center font-normal">รายละเอียดบัดเดอร์</p>
+              <p>
+                <span className="underline font-normal">คำใบ้:</span>{" "}
+                {budderData.hint_1}
+              </p>
+              <br />
+            </div>
+          )}
         </div>
       ) : (
         <></>
