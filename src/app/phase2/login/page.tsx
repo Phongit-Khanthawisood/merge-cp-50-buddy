@@ -54,10 +54,10 @@ export default function Home() {
 const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
   return (
     <section className="relative font-mitr text-[#CBCBCB] mt-[15vh] text-center font-semibold w-[300px] mx-auto space-y-[3px]">
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center h-auto overflow-visible">
         <Image
           src="/phase2/Merge_CP50_text.svg"
-          height={60}
+          height={80}
           width={400}
           alt="merge cp text"
         />
@@ -97,7 +97,7 @@ const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
 
 const DecoSession = () => {
   return (
-    <div className="relative flex w-full h-[140px]">
+    <div className="relative w-full h-[140px]">
       <Cloud />
 
       <Image
@@ -105,21 +105,21 @@ const DecoSession = () => {
         height={60}
         width={30}
         alt="merge cp text"
-        className="absolute top-[100px] left-[20px] animate-[up-and-down_2.5s_infinite]"
+        className="absolute top-[100px] left-[5%] animate-[up-and-down_2.5s_infinite]"
       />
       <Image
         src="/phase2/star.svg"
         height={60}
         width={34}
         alt="merge cp text"
-        className="absolute  top-[70px] left-[100px] animate-[up-and-down_3s_infinite]"
+        className="absolute  top-[70px] left-[20%] animate-[up-and-down_3s_infinite]"
       />
       <Image
         src="/phase2/star.svg"
         height={60}
         width={30}
         alt="merge cp text"
-        className="absolute  top-[40px] left-[150px] animate-[up-and-down_2s_infinite]"
+        className="absolute  top-[40px] left-[45%] animate-[up-and-down_2s_infinite]"
       />
 
       <Image
@@ -127,14 +127,14 @@ const DecoSession = () => {
         height={60}
         width={25}
         alt="merge cp text"
-        className="absolute  top-[80px] left-[250px] animate-[up-and-down_2s_infinite]"
+        className="absolute  top-[80px] left-[65%] animate-[up-and-down_2s_infinite]"
       />
       <Image
         src="/phase2/star.svg"
         height={60}
         width={34}
         alt="merge cp text"
-        className="absolute  top-[37px] left-[300px] animate-[up-and-down_2s_infinite]"
+        className="absolute top-[37px] left-[80%] animate-[up-and-down_2s_infinite]"
       />
     </div>
   );
