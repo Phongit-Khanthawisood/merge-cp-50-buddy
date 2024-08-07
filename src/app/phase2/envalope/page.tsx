@@ -63,13 +63,13 @@ export default function Home() {
               <Link
                 href="https://www.instagram.com/cp50_50yearscpall/"
                 target="_blank"
-                className="w-52 shadow-md shadow-gray-600 rounded-[50px] h-12 bg-[#40B8CE] flex flex-row items-center p-2"
+                className="w-auto shadow-md shadow-gray-600 rounded-[50px] h-12 bg-[#40B8CE] flex flex-row items-center p-2"
               >
                 <div className="w-10 h-10 bg-[#E8EFF0] rounded-full flex items-center justify-center">
                   <Image src="/ig.png" alt="ig" width={30} height={30} />
                 </div>
-                <p className="ml-4 text-white font-mitr font-normal">
-                  cp50_50yearscpall
+                <p className="ml-4 mr-4 text-white font-mitr font-normal">
+                  @cp50_50yearscpall
                 </p>
               </Link>
             </div>
