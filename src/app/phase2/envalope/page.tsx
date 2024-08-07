@@ -1,57 +1,136 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { auth, db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+
+import data from "./new_buddy.json";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [studentId, setStudentId] = useState("");
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const getStudentId = async () => {
+      setLoading(true);
+      const temp_uid = localStorage.getItem("uid");
+      if (temp_uid) {
+        const docRef = doc(db, "user-profiles", temp_uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setStudentId(docSnap.data().studentId);
+        } else {
+          console.log("Data not found!");
+        }
+      } else {
+        router.push("/phase2/login");
+      }
+      setLoading(false);
+    };
+    getStudentId();
+  }, []);
+
   return (
     <main className="flex min-h-[900px] h-screen items-center flex-col sm:max-w-[360px] sm:mx-auto relative bg-[#F1EDD9] overflow-hidden ">
       <p className="text-gray-400 font-semibold text-center top-5 absolute">
         Merge CP50
       </p>
 
-      <div
-        className="mt-[10vh] w-[323px] h-[400px]  relative"
-        onClick={(e) => {
-          setOpen(true);
-        }}
-      >
-        <Envalope open={open} />
-      </div>
-      {open ? (
-        <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2">
-          <p className="text-red-700 font-mitr text-sm">
-            ฝากข้อความถึงบัดดี้ / บัดเดอร์ของคุณได้ที่
-          </p>
-          <Link
-            href="https://www.instagram.com/comeng.official/"
-            target="_blank"
-            className="w-52 shadow-md shadow-gray-600 rounded-[50px] h-12 bg-[#40B8CE] flex flex-row items-center p-2"
-          >
-            <div className="w-10 h-10 bg-[#E8EFF0] rounded-full flex items-center justify-center">
-              <Image src="/ig.png" alt="ig" width={30} height={30} />
-            </div>
-            <p className="ml-4 text-white font-mitr font-normal">
-              comeng.official
-            </p>
-          </Link>
-        </div>
+      {loading ? (
+        <h1 className="h-full w-full flex justify-center items-center font-mitr text-[32px] text-[#DC6B19] ">
+          Loading...
+        </h1>
       ) : (
-        <p className="text-gray-400 font-semibold text-center mt-6">
-          Click the heart to see the hint
-        </p>
+        <>
+          <div
+            className="mt-[10vh] w-[323px] h-[400px]  relative"
+            onClick={(e) => {
+              setOpen(true);
+            }}
+          >
+            <Envalope open={open} studentId={studentId} />
+          </div>
+          {open ? (
+            <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2">
+              <p className="text-red-700 font-mitr text-sm">
+                ฝากข้อความถึงบัดดี้ / บัดเดอร์ของคุณได้ที่
+              </p>
+              <Link
+                href="https://www.instagram.com/cp50_50yearscpall/"
+                target="_blank"
+                className="w-52 shadow-md shadow-gray-600 rounded-[50px] h-12 bg-[#40B8CE] flex flex-row items-center p-2"
+              >
+                <div className="w-10 h-10 bg-[#E8EFF0] rounded-full flex items-center justify-center">
+                  <Image src="/ig.png" alt="ig" width={30} height={30} />
+                </div>
+                <p className="ml-4 text-white font-mitr font-normal">
+                  cp50_50yearscpall
+                </p>
+              </Link>
+            </div>
+          ) : (
+            <p className="text-gray-400 font-semibold text-center mt-6">
+              Click the heart to see the hint
+            </p>
+          )}
+        </>
       )}
     </main>
   );
 }
 
-const Envalope = ({ open }: { open: React.SetStateAction<boolean> }) => {
+const Envalope = ({
+  open,
+  studentId,
+}: {
+  open: React.SetStateAction<boolean>;
+  studentId: string;
+}) => {
+  const studentData = data.filter((item, index) => {
+    return item.student_id + "" === studentId;
+  })[0];
+  const budderData = data[studentData.budder_index - 1];
+  const buddyData = data[studentData.buddy_index - 1];
   return (
     <div className="absolute bottom-2 bg-[#E4E4E4] h-[206px] w-[323px] rounded-xl p-0 shadow-lg font-mitr text-white mt-[15vh] text-center font-semibold mx-auto space-y-[3px]">
       {open ? (
-        <div className="w-[90%] mt-2 absolute h-[90%] flex items-center justify-center bg-[#B99470] left-4">
-          <p>( คำใบ้บัดดี้ )</p>
+        <div className="w-[90%] mt-2 py-2 bottom-2 absolute h-[90%] flex flex-col items-center justify-center bg-[#B99470] left-4 overflow-y-scroll">
+          <div className="absolute top-0 py-2 w-[80%] flex flex-col items-start justify-center  mx-auto font-light text-left">
+            <p className="self-center font-normal">รายละเอียดบัดดี้</p>
+            <p>
+              <span className="underline font-normal">ชื่อเล่น:</span>{" "}
+              {buddyData.nickname}
+            </p>
+            <p>
+              <span className="underline font-normal">ของที่ชอบ:</span>{" "}
+              {buddyData.favorite_foods}
+            </p>
+            <p>
+              <span className="underline font-normal">IG/FB:</span>{" "}
+              {buddyData.instagram_facebook}
+            </p>
+            <p className="w-full">
+              <span className="underline font-normal">
+                ข้อความที่ฝากถึงบัดเดอร์:
+              </span>{" "}
+              <br />
+              <pre className="font-mitr text-center">
+                "{buddyData.message_to_budder}"
+              </pre>
+            </p>
+            <br />
+            <p className="self-center font-normal">รายละเอียดบัดเดอร์</p>
+            <p>
+              <span className="underline font-normal">คำใบ้:</span>{" "}
+              {budderData.hint_1}
+            </p>
+            <br />
+          </div>
         </div>
       ) : (
         <></>
