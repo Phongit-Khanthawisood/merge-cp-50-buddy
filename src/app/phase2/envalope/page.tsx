@@ -144,7 +144,7 @@ const Envalope = ({
               <br />
               <p className="self-center font-normal">รายละเอียดบัดเดอร์</p>
               <p>
-                <span className="underline font-normal">คำใบ้:</span>{" "}
+                <span className="underline font-normal">คำใบ้ที่ 1:</span>{" "}
                 {budderData.hint_1}
               </p>
               <br />
