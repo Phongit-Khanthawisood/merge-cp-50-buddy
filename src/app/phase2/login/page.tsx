@@ -1,6 +1,6 @@
 "use client";
 import { SignInFunction, auth } from "@/lib/firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -69,14 +69,24 @@ const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
 
       <div className="relative w-[500px] h-[240px]">
         {loginStatus ? (
-          <Link href="/phase2/envalope">
+          <div>
+            <Link href="/phase2/envalope">
+              <Button
+                variant="login"
+                className="absolute  z-10 left-[95px] top-[275px]"
+              >
+                Continue
+              </Button>
+            </Link>
             <Button
-              variant="login"
-              className="absolute  z-10 left-[95px] top-[275px]"
+              onClick={() => {
+                signOut(auth);
+              }}
+              className="absolute  z-10 left-[130px] top-[360px] font-mitr font-semibold  bg-red-400 text-white drop-shadow-xl w-auto hover:bg-red-500 "
             >
-              Continue
+              LOG OUT
             </Button>
-          </Link>
+          </div>
         ) : (
           <Button
             variant="login"
