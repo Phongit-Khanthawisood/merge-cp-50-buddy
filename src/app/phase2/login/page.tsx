@@ -1,20 +1,57 @@
 "use client";
+import { SignInFunction, auth } from "@/lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Cloud } from "@/components/ui/cloud";
+import { Toaster } from "@/components/ui/toaster";
+import { toast } from "@/components/ui/use-toast";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          localStorage.setItem("uid", user.uid);
+          toast({
+            className: "bg-green-500 text-white font-mitr",
+            title: "Login Success",
+            description:
+              "Your Login in Web Complete -> Continue to see more detail",
+          });
+          setLoginStatus(true);
+        } else {
+          setLoginStatus(false);
+          toast({
+            className: "font-mitr",
+            variant: "destructive",
+            title: "Login Fail",
+            description: "Please Try Again or Contact Support",
+          });
+        }
+        setLoading(false);
+      });
+    };
+    checkLogin();
+  }, [auth]);
+
   return (
     <main className="flex min-h-[900px] h-screen flex-col sm:max-w-[360px] sm:mx-auto  bg-[#F1EDD9] overflow-hidden ">
       <DecoSession />
 
-      <LoginSection />
+      <LoginSection loginStatus={loginStatus} />
+      <Toaster />
     </main>
   );
 }
 
-const LoginSection = () => {
+const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
   return (
     <section className="relative font-mitr text-[#CBCBCB] mt-[15vh] text-center font-semibold w-[300px] mx-auto space-y-[3px]">
       <div className="w-full flex items-center justify-center">
@@ -27,12 +64,25 @@ const LoginSection = () => {
       </div>
 
       <div className="relative w-[500px] h-[240px]">
-        <Button
-          variant="login"
-          className="absolute z-10 left-[95px] top-[275px]"
-        >
-          LOG IN
-        </Button>
+        {loginStatus ? (
+          <Link href="/phase2/envalope">
+            <Button
+              variant="login"
+              className="absolute  z-10 left-[95px] top-[275px]"
+            >
+              Continue
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            variant="login"
+            className="absolute z-10 left-[95px] top-[275px]"
+            onClick={SignInFunction}
+          >
+            LOG IN
+          </Button>
+        )}
+
         <Image
           src="/phase2/mailbox.svg"
           height={300}

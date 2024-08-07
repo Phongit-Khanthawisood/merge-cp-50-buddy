@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import StudentIdForm from "@/components/StudentIdForm";
 import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
+import { toast } from "@/components/ui/use-toast";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
