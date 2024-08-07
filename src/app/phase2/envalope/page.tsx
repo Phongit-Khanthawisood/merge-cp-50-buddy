@@ -123,17 +123,17 @@ const Envalope = ({
               <p>
                 <span className="underline font-normal">ชื่อเล่น</span>
                 {" : "}
-                {buddyData.nickname}
+                {buddyData?.nickname}
               </p>
               <p>
                 <span className="underline font-normal">ไอจี/เฟซบุ๊ก</span>
                 {" : "}
-                {buddyData.instagram_facebook}
+                {buddyData?.instagram_facebook}
               </p>
               <p>
                 <span className="underline font-normal">ของที่ชอบ</span>
                 {" : "}
-                {buddyData.favorite_foods}
+                {buddyData?.favorite_foods}
               </p>
               <p className="w-full">
                 <span className="underline font-normal">
@@ -142,7 +142,7 @@ const Envalope = ({
                 {" : "}
                 <br />
                 <pre className="font-mitr text-center">
-                  "{buddyData.message_to_budder}"
+                  "{buddyData?.message_to_budder}"
                 </pre>
               </p>
 
@@ -158,7 +158,7 @@ const Envalope = ({
               <p>
                 <span className="underline font-normal">คำใบ้</span>
                 {" : "}
-                {budderData.hint_1}
+                {budderData?.hint_1}
               </p>
               <br />
               <br />
