@@ -13,6 +13,7 @@ import Link from "next/link";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [firstTime, setFirstTime] = useState(true);
 
   useEffect(() => {
     const checkLogin = async () => {
@@ -28,13 +29,16 @@ export default function Home() {
           setLoginStatus(true);
         } else {
           setLoginStatus(false);
-          toast({
-            className: "font-mitr",
-            variant: "destructive",
-            title: "Login Fail",
-            description: "Please Try Again or Contact Support",
-          });
+          if (!firstTime) {
+            toast({
+              className: "font-mitr",
+              variant: "destructive",
+              title: "Login Fail",
+              description: "Please Try Again or Contact Support",
+            });
+          }
         }
+        setFirstTime(false);
         setLoading(false);
       });
     };
@@ -56,8 +60,8 @@ const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
     <section className="relative font-mitr text-[#CBCBCB] mt-[15vh] text-center font-semibold w-[300px] mx-auto space-y-[3px]">
       <div className="w-full flex items-center justify-center h-auto overflow-visible">
         <Image
-          src="/phase2/Merge_CP50_text.svg"
-          height={80}
+          src="/phase2/Merge_CP50.png"
+          height={100}
           width={400}
           alt="merge cp text"
         />
