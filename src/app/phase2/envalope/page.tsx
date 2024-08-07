@@ -101,18 +101,28 @@ const Envalope = ({
       {open ? (
         <div className="w-[90%] mt-2 py-2 bottom-2 absolute h-[90%] flex flex-col items-center justify-center bg-[#B99470] left-4 overflow-y-scroll">
           <div className="absolute top-0 py-2 w-[80%] flex flex-col items-start justify-center  mx-auto font-light text-left">
+            <br />
+            <br />
+            <br />
+            <p className="self-center text-center font-normal">
+              เลื่อนจดหมายลงเพื่อดูรายละเอียด
+              <br />|
+              <br />|
+              <br />V
+            </p>
+            <br />
             <p className="self-center font-normal">รายละเอียดบัดดี้</p>
             <p>
               <span className="underline font-normal">ชื่อเล่น:</span>{" "}
               {buddyData.nickname}
             </p>
             <p>
-              <span className="underline font-normal">ของที่ชอบ:</span>{" "}
-              {buddyData.favorite_foods}
+              <span className="underline font-normal">ไอจี/เฟซบุ๊ก:</span>{" "}
+              {buddyData.instagram_facebook}
             </p>
             <p>
-              <span className="underline font-normal">IG/FB:</span>{" "}
-              {buddyData.instagram_facebook}
+              <span className="underline font-normal">ของที่ชอบ:</span>{" "}
+              {buddyData.favorite_foods}
             </p>
             <p className="w-full">
               <span className="underline font-normal">
