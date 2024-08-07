@@ -82,7 +82,7 @@ const LoginSection = ({ loginStatus }: { loginStatus: boolean }) => {
               onClick={() => {
                 signOut(auth);
               }}
-              className="absolute  z-10 left-[130px] top-[360px] font-mitr font-semibold  bg-red-400 text-white drop-shadow-xl w-auto hover:bg-red-500 "
+              className="absolute  z-10 left-[135px] top-[360px] font-mitr font-semibold  bg-red-400 text-white drop-shadow-xl w-auto hover:bg-red-500 "
             >
               LOG OUT
             </Button>
