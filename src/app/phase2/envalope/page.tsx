@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <main className="flex min-h-[900px] h-screen items-center flex-col sm:max-w-[360px] sm:mx-auto relative bg-[#F1EDD9] overflow-hidden ">
       <p className="text-gray-400 font-semibold text-center top-5 absolute">
-        Merge CP50
+        Merge CP50 | Buddy & Budder
       </p>
 
       {loading ? (
@@ -121,32 +121,47 @@ const Envalope = ({
               <br />
               <p className="self-center font-normal">รายละเอียดบัดดี้</p>
               <p>
-                <span className="underline font-normal">ชื่อเล่น:</span>{" "}
+                <span className="underline font-normal">ชื่อเล่น</span>
+                {" : "}
                 {buddyData.nickname}
               </p>
               <p>
-                <span className="underline font-normal">ไอจี/เฟซบุ๊ก:</span>{" "}
+                <span className="underline font-normal">ไอจี/เฟซบุ๊ก</span>
+                {" : "}
                 {buddyData.instagram_facebook}
               </p>
               <p>
-                <span className="underline font-normal">ของที่ชอบ:</span>{" "}
+                <span className="underline font-normal">ของที่ชอบ</span>
+                {" : "}
                 {buddyData.favorite_foods}
               </p>
               <p className="w-full">
                 <span className="underline font-normal">
-                  ข้อความที่ฝากถึงบัดเดอร์:
-                </span>{" "}
+                  ข้อความที่ฝากถึงบัดเดอร์
+                </span>
+                {" : "}
                 <br />
                 <pre className="font-mitr text-center">
                   "{buddyData.message_to_budder}"
                 </pre>
               </p>
+
+              <p className="self-center text-center font-normal">
+                .<br />
+                .<br />
+                เลื่อนอีกนิดนะ !
+              </p>
+              <br />
+              <br />
               <br />
               <p className="self-center font-normal">รายละเอียดบัดเดอร์</p>
               <p>
-                <span className="underline font-normal">คำใบ้ที่ 1:</span>{" "}
+                <span className="underline font-normal">คำใบ้</span>
+                {" : "}
                 {budderData.hint_1}
               </p>
+              <br />
+              <br />
               <br />
             </div>
           )}
