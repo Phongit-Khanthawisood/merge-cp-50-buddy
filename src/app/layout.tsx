@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Merge CP50",
-  description: "Merge CP50 Pre-register",
+  description: "Merge CP50 Buddy & Budder",
 };
 
 export default function RootLayout({
