@@ -55,20 +55,23 @@ export default function Home() {
           >
             <Envalope open={open} studentId={studentId} />
           </div>
+          {open ? (
+            <div>
+              <div className="font-mitr text-[#AEBECC] font-semibold text-sm mt-12 text-center">
+                Scroll Down ! <br />| <br />| <br />V
+              </div>
 
-          <div>
-            <div className="font-mitr text-[#AEBECC] font-semibold text-sm mt-12 text-center">
-              Scroll Down ! <br />| <br />| <br />V
+              <div className="flex flex-col items-center mt-36 mb-16 text-center bg-[url('/phase3/mailbox.svg')] min-w-[250px] min-h-[200px] bg-contain bg-no-repeat bg-top font-normal font-mitr text-sm">
+                <h2 className="mt-[14px]">Theme เทคบัดดี้ครั้งที่ 1</h2>
+                <p className="max-w-[200px] mt-12">
+                  ของ / ขนมที่ขึ้นต้นด้วย
+                  <br />ค หรือ อ หรือ ม
+                </p>
+              </div>
             </div>
-
-            <div className="flex flex-col items-center mt-36 mb-16 text-center bg-[url('/phase3/mailbox.svg')] min-w-[250px] min-h-[200px] bg-contain bg-no-repeat bg-top font-normal font-mitr text-sm">
-              <h2 className="mt-[14px]">Theme เทคบัดดี้ครั้งที่ 1</h2>
-              <p className="max-w-[200px] mt-12">
-                ของ / ขนมที่ขึ้นต้นด้วย
-                <br />ค หรือ อ หรือ ม
-              </p>
-            </div>
-          </div>
+          ) : (
+            <></>
+          )}
 
           {open ? (
             <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2 pb-24">
