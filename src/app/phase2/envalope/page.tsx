@@ -36,13 +36,13 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-[900px] h-screen items-center flex-col sm:max-w-[360px] sm:mx-auto relative bg-[#F1EDD9] overflow-hidden ">
+    <main className="flex min-h-[900px] max-h-fit items-center flex-col sm:max-w-[360px] sm:mx-auto relative bg-[#F1EDD9] overflow-hidden ">
       <p className="text-gray-400 font-semibold text-center top-5 absolute">
         Merge CP50 | Buddy & Budder
       </p>
 
       {loading ? (
-        <h1 className="h-full w-full flex justify-center items-center font-mitr text-[32px] text-[#DC6B19] ">
+        <h1 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-full flex justify-center items-center font-mitr text-[32px] text-[#DC6B19] ">
           Loading...
         </h1>
       ) : (
@@ -55,8 +55,23 @@ export default function Home() {
           >
             <Envalope open={open} studentId={studentId} />
           </div>
+
+          <div>
+            <div className="font-mitr text-[#AEBECC] font-semibold text-sm mt-12 text-center">
+              Scroll Down ! <br />| <br />| <br />V
+            </div>
+
+            <div className="flex flex-col items-center mt-36 mb-16 text-center bg-[url('/phase3/mailbox.svg')] min-w-[250px] min-h-[200px] bg-contain bg-no-repeat bg-top font-normal font-mitr text-sm">
+              <h2 className="mt-[14px]">Theme เทคบัดดี้ครั้งที่ 1</h2>
+              <p className="max-w-[200px] mt-12">
+                ของ / ขนมที่ขึ้นต้นด้วย
+                <br />ค หรือ อ หรือ ม
+              </p>
+            </div>
+          </div>
+
           {open ? (
-            <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2">
+            <div className="text-gray-400 font-semibold text-center mt-6 justify-center items-center flex flex-col space-y-2 pb-24">
               <p className="text-red-700 font-mitr text-sm">
                 ฝากข้อความถึงบัดดี้ / บัดเดอร์ของคุณได้ที่
               </p>
