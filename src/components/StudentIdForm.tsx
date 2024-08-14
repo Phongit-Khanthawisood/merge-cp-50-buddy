@@ -64,7 +64,7 @@ export default function StudentIdForm({
         description:
           "Your Pre-register in Web Complete -> Don't Forget to Register in gg form",
       });
-      window.location.href = "https://forms.gle/CLopzkR7SjhjRWgBA";
+      // window.location.href = "https://forms.gle/CLopzkR7SjhjRWgBA";
       setAlreadyUpdate(true);
     } catch (error) {
       console.error(error);
