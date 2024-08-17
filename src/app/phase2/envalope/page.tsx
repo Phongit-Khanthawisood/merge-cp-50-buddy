@@ -62,10 +62,11 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center mt-36 mb-16 text-center bg-[url('/phase3/mailbox.svg')] min-w-[250px] min-h-[200px] bg-contain bg-no-repeat bg-top font-normal font-mitr text-sm">
-                <h2 className="mt-[14px]">Theme เทคบัดดี้ครั้งที่ 1</h2>
+                <h2 className="mt-[14px]">Theme เทคบัดดี้ครั้งที่ 2</h2>
                 <p className="max-w-[200px] mt-12">
-                  ของ / ขนมที่ขึ้นต้นด้วย
-                  <br />ค หรือ อ หรือ ม
+                  ของ / ขนมที่ราคาไม่เกิน
+                  <br />
+                  50 บาท!
                 </p>
               </div>
             </div>
@@ -182,6 +183,11 @@ const Envalope = ({
                 <span className="underline font-normal">คำใบ้ 2</span>
                 {" : "}
                 {budderData?.hint_2}
+              </p>
+              <p>
+                <span className="underline font-normal">คำใบ้ 3</span>
+                {" : "}
+                {budderData?.hint_3}
               </p>
               <br />
               <br />
