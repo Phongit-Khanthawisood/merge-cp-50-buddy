@@ -20,6 +20,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         login:
           "bg-[#C0E4DB] w-44 rounded-2xl h-6 text-[#216596] text-lg font-mitr hover:bg-[#216596] font-semibold hover:text-[#C0E4DB] shadow-gray-800 shadow-md",
+        login2:
+          "bg-[#F9E2AF] w-44 rounded-2xl h-6 text-[#DC6B19] text-lg font-mitr hover:bg-[#E58B4A] font-semibold hover:text-white shadow-gray-800 shadow-md",
       },
       size: {
         default: "h-10 px-4 py-2",
